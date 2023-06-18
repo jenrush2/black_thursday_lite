@@ -1,10 +1,14 @@
-require "./lib/sales_engine"
-require "./lib/item_collection"
-require "./lib/merchant_collection"
+require 'CSV'
+require 'rspec'
+require "./lib/sales_engine.rb"
+
+
+#require "./lib/item_collection"
+#require "./lib/merchant_collection"
 
 #You may need to add more `expect` lines to each test to make it more robust...!
 RSpec.describe SalesEngine do
-  xit "exists" do
+  it "exists" do
     sales_engine = SalesEngine.from_csv({
       :items => "./data/items.csv",
       :merchants => "./data/merchants.csv"
@@ -12,7 +16,7 @@ RSpec.describe SalesEngine do
     expect(sales_engine).to be_instance_of SalesEngine
   end
 
-  xit "can return an array of all items" do
+  it "can return an array of all items" do
     sales_engine = SalesEngine.from_csv({
       :items => "./data/items.csv",
       :merchants => "./data/merchants.csv"
@@ -24,7 +28,7 @@ RSpec.describe SalesEngine do
 
   end
 
-  xit "can return an array of all instances" do
+  it "can return an array of all instances" do
     sales_engine = SalesEngine.from_csv({
       :items => "./data/items.csv",
       :merchants => "./data/merchants.csv"
